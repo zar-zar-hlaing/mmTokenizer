@@ -22,6 +22,8 @@ git clone https://github.com/yourusername/mmTokenizer.git
 cd mmTokenizer
 pip install .
 
+---
+
 ## Usage
 
 ### Syllable Tokenizer
