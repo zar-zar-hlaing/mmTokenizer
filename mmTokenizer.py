@@ -176,86 +176,75 @@ def thirdTable(c: int, s1: str, i: int, convert: list):
 
 #endregion
 
-#region Word segmentation with multithreading
+#region Word segmentation
 
-def load_lexicon():
-    """Load Myanmar lexicon (unique words) from a CoNLL-U format file.
-    Each line in CoNLL-U contains tab-separated fields, 
-    with the word in column 2 (index 1).
+def wordSegment(text: str) -> str:
     """
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    base_dir = os.path.abspath(os.path.join(current_dir, ".."))
-    path = os.path.join(base_dir, "myanmar_text_data", "myUDTree_ver1.0.conllu.pred")
+    Performs lexicon-based word segmentation.
+    - Loads lexicon from file
+    - Splits tokenized string
+    - Matches longest possible words in lexicon
+    """
+    returnText = ""
+    lexicon = set()
 
-    lexicon = []
     try:
-        with io.open(path, "r", encoding="utf-8") as f:
+        # Get current file's directory
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        # print("___current_dir___:\t", current_dir, "\n")
+
+        # Go one level up to project root
+        base_dir = os.path.abspath(os.path.join(current_dir, "."))
+        # print("__base_dir___:\t", base_dir, "\n")
+
+        # Build relative path to lexicon file
+        LEXICON_FILE_PATH = os.path.join(base_dir, "myanmar_text_data", "lexicon-1.txt")
+
+        # Load lexicon (words are in the 2nd column of tab-separated file)
+        with io.open(LEXICON_FILE_PATH, "r", encoding="utf-8") as f:
             for line in f:
                 parts = line.strip().split("\t")
-                lexicon.extend(parts)
-    except Exception as e:
-        print(f"[Error] Failed to load lexicon: {e}")
-        return set()
+                if len(parts) > 1:  # ensure at least two columns
+                    lexicon.add(parts[1])
 
-    return set(lexicon[i] for i in range(1, len(lexicon), 6))
+        # Tokenize into syllables
+        tokens = syllableSegment(text).split("|")
+        lastOutput = []
 
-MYANMAR_PHRASE = load_lexicon()
-MAX_WORD_LEN = max((len(w) for w in MYANMAR_PHRASE), default=1)
-
-def segment_chunk(tokens):
-    """Greedy longest-match segmentation on a token list."""
-    result = []
-    while tokens:
-        max_range = min(len(tokens), MAX_WORD_LEN)
-        for k in range(max_range, 0, -1):
-            candidate = "".join(tokens[:k])
-            if candidate in MYANMAR_PHRASE:
-                result.append(candidate)
-                tokens = tokens[k:]
-                break
-            if k == 1:
-                result.append(candidate)
+        # Longest match algorithm
+        while tokens:
+            matched = False
+            # Try longest possible sequence first
+            for k in range(len(tokens), 0, -1):
+                candidate = "".join(tokens[:k])
+                if candidate in lexicon:
+                    lastOutput.append(candidate)
+                    tokens = tokens[k:]
+                    matched = True
+                    break
+            # If no match, keep single syllable
+            if not matched:
+                lastOutput.append(tokens[0])
                 tokens = tokens[1:]
-                break
-    return result
 
-def wordSegment(text: str, max_workers=4) -> str:
-    """Multi-threaded lexicon-based word segmentation."""
-    tokens = syllableSegment(text).split("|")
+        returnText = "|".join(lastOutput)
 
-    if len(tokens) <= MAX_WORD_LEN * 2:
-        return "|".join(segment_chunk(tokens))
+    except Exception as e:
+        print("Error reading lexicon:", e)
+        return None
 
-    chunk_size = max(1, len(tokens) // max_workers)
-    chunks = []
-    for i in range(0, len(tokens), chunk_size):
-        start = max(0, i - MAX_WORD_LEN)
-        end = min(len(tokens), i + chunk_size + MAX_WORD_LEN)
-        chunks.append((i, start, end, tokens[start:end]))
+    return returnText
 
-    results = [None] * len(chunks)
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = {executor.submit(segment_chunk, chunk): idx for idx, (_, _, _, chunk) in enumerate(chunks)}
-        for future in futures:
-            results[futures[future]] = future.result()
-
-    merged = []
-    for idx, (_, _, _, _) in enumerate(chunks):
-        if idx == 0:
-            merged.extend(results[idx])
-        else:
-            merged.extend(results[idx][MAX_WORD_LEN:])
-
-    return "|".join(merged)
 
 #endregion
 
 #region Test/demo
 
 if __name__ == "__main__":
-    sample = "လူတိုင်းသည် တူညီလွတ်လပ်သော ဂုဏ်သိက္ခာဖြင့်လည်းကောင်း၊ တူညီလွတ်လပ်သော အခွင့်အရေးများဖြင့်လည်းကောင်း၊ မွေးဖွားလာသူများဖြစ်သည်။ ထိုသူတို့၌ပိုင်းခြားဝေဖန်တတ်သော ဉာဏ်နှင့် ကျင့်ဝတ် သိတတ်သောစိတ်တို့ရှိကြ၍ ထိုသူတို့သည် အချင်းချင်းမေတ္တာထား၍ ဆက်ဆံသင့်၏"
-    print("Input:", sample)
-    print("Syllables:", syllableSegment(sample))
+    # sample = "လူတိုင်းသည် တူညီလွတ်လပ်သော ဂုဏ်သိက္ခာဖြင့်လည်းကောင်း၊ တူညီလွတ်လပ်သော အခွင့်အရေးများဖြင့်လည်းကောင်း၊ မွေးဖွားလာသူများဖြစ်သည်။"
+    sample = "လူတိုင်းသည် တူညီလွတ်လပ်သော ဂုဏ်သိက္ခာဖြင့်လည်းကောင်း၊ တူညီလွတ်လပ်သော အခွင့်အရေးများဖြင့်လည်းကောင်း၊ မွေးဖွားလာသူများဖြစ်သည်။ ထိုသူတို့၌ပိုင်းခြားဝေဖန်တတ်သော ဉာဏ်နှင့် ကျင့်ဝတ် သိတတ်သောစိတ်တို့ရှိကြ၍ ထိုသူတို့သည် အချင်းချင်းမေတ္တာထား၍ ဆက်ဆံသင့်၏။"
+    print("Input:", sample, "\n")
+    print("Syllables:", syllableSegment(sample), "\n")
     print("Words:", wordSegment(sample))
 
 #endregion
