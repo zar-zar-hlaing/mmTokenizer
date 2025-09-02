@@ -71,5 +71,6 @@ print(syllable_seg_out)  # လူ|တိုင်း|သည်| |တူညီ|�
 - Zar Zar Hlaing
 
 ## References
-- Z. M. Maung and Y. Mikami, “A rule-based syllable segmentation of Myanmar text,” ResearchGate, Jan. 2008, [Online]. Available: https://github.com/zar-zar-hlaing/mmTokenizer/blob/main/reference/A_Rule-based_Syllable_Segmentation_of_Myanmar_Text.pdf
-- H. Htay and K. N. Murthy, “Myanmar Word Segmentation using Syllable level Longest Matching,” 2008. https://www.semanticscholar.org/paper/Myanmar-Word-Segmentation-using-Syllable-level-Htay-Murthy/077d3a55fd053af3aa1aa8e6f07147bcf7d7bc48
+- Z. M. Maung and Y. Mikami, “[A Rule-based Syllable Segmentation of Myanmar Text](https://aclanthology.org/I08-3010/),” *Proceedings of the IJCNLP-08 Workshop on NLP for Less Privileged Languages*, Hyderabad, India, Jan. 2008.
+- H. Htay and K. N. Murthy, “[Myanmar Word Segmentation using Syllable level Longest Matching](https://aclanthology.org/I08-7006/),” *Proceedings of the 6th Workshop on Asian Language Resources*, Hyderabad, India, January 2008.
+
