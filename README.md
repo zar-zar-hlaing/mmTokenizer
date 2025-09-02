@@ -41,6 +41,8 @@ print(syllable_seg_out)  # လူ|တိုင်း|သည်| |တူ|ညီ|�
 ### Word Segmenter
 
 ```python
+from mmTokenizer import wordSegment
+
 input_text = "လူတိုင်းသည် တူညီလွတ်လပ်သော အခွင့်အရေးများဖြင့်လည်းကောင်း၊ မွေးဖွားလာသူများဖြစ်သည်။"
 word_seg_out = wordSegment(input_text)
 print(syllable_seg_out)  # လူ|တိုင်း|သည်| |တူညီ|လွတ်လပ်|သော| |ဂုဏ်သိက္ခာ|ဖြင့်|လည်းကောင်း|၊ |တူညီ|လွတ်လပ်|သော| |အခွင့်အရေး|များ|ဖြင့်|လည်းကောင်း|၊ |မွေးဖွားလာသူ|များ|ဖြစ်|သည်|။
