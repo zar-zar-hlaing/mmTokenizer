@@ -18,7 +18,7 @@ It provides **syllable segmentation** and **word segmentation** using rule-based
 Clone and install locally:
 
 ```bash
-git clone https://github.com/yourusername/mmTokenizer.git
+git clone https://github.com/zar-zar-hlaing/mmTokenizer.git
 cd mmTokenizer
 pip install .
 ```
