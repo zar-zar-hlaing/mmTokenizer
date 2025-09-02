@@ -56,6 +56,9 @@ print(syllable_seg_out)  # လူ|တိုင်း|သည်| |တူညီ|�
 ├── myanmar_text_data
 │   └── lexicon-1.txt
 ├── README.md
+├── reference
+│   ├── A_Rule-based_Syllable_Segmentation_of_Myanmar_Text.pdf
+│   └── Myanmar_Word_Segmentation_using_Syllable_level_Longest_Matching.pdf
 ├── requirements.txt
 ├── setup.py
 └── tests
@@ -66,5 +69,5 @@ print(syllable_seg_out)  # လူ|တိုင်း|သည်| |တူညီ|�
 - Zar Zar Hlaing
 
 ## References
-- Z. M. Maung and Y. Mikami, “A rule-based syllable segmentation of Myanmar text,” ResearchGate, Jan. 2008, [Online]. Available: https://www.researchgate.net/publication/253745697_A_Rule-based_Syllable_Segmentation_of_Myanmar_Text
+- Z. M. Maung and Y. Mikami, “A rule-based syllable segmentation of Myanmar text,” ResearchGate, Jan. 2008, [Online]. Available: https://github.com/zar-zar-hlaing/mmTokenizer/blob/main/reference/A_Rule-based_Syllable_Segmentation_of_Myanmar_Text.pdf
 - H. Htay and K. N. Murthy, “Myanmar Word Segmentation using Syllable level Longest Matching,” 2008. https://www.semanticscholar.org/paper/Myanmar-Word-Segmentation-using-Syllable-level-Htay-Murthy/077d3a55fd053af3aa1aa8e6f07147bcf7d7bc48
