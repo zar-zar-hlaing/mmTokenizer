@@ -1,7 +1,6 @@
 # mmTokenizer
 
-**mmTokenizer** is a Python library for Myanmar (Burmese) text segmentation.  
-It provides **syllable segmentation** and **word segmentation** using rule-based and lexicon-based approaches.
+**mmTokenizer** is a Python library for Myanmar (Burmese) text segmentation. It provides **syllable segmentation** and **word segmentation** using rule-based and lexicon-based approaches.
 
 ---
 
