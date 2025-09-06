@@ -57,6 +57,8 @@ print(syllable_seg_out)  # လူ|တိုင်း|သည်| |တူညီ|�
 ├── myanmar_text_data
 │   └── lexicon-1.txt
 ├── README.md
+├── SYLLABLE_README.md          # <-- detailed syllable segmentation explanation
+├── WORD_README.md              # <-- detailed word segmentation explanation
 ├── reference
 │   ├── A_Rule-based_Syllable_Segmentation_of_Myanmar_Text.pdf
 │   └── Myanmar_Word_Segmentation_using_Syllable_level_Longest_Matching.pdf
