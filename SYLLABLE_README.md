@@ -168,15 +168,12 @@ function syllableSegment(text):
 
 
 ### TwoConsecutive Table
-
 ![twoConsecutive Table](reference/twoConsecutive_table.png)
 
 ### ThreeConsecutive Table
-
 ![ThreeConsecutive Table](reference/threeConsecutive_table.png)
 
 ### FourConsecutive Table
-
 ![FourConsecutive Table](reference/fourConsecutive_table.png)
 
 ---
