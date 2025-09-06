@@ -12,7 +12,7 @@ Provide a clear, step-by-step explanation of a rule-based approach to segment My
 ## 1. Background & Key Concepts
 - Myanmar script does **not** use spaces between words; syllable segmentation is a core preprocessing step for many NLP tasks (word segmentation, line breaking, sorting).
 - The approach is **rule-based**, using the Myanmar syllable structure and category-based letter-sequence tables.
-- The algorithm operates on Unicode-encoded text using a Unicode model (UTN11-2).
+- The algorithm operates on Unicode-encoded text using a Unicode model ([UTN11-2](http://www.unicode.org/notes/tn11/)).
 
 ### Classification of Myanmar Script
 
