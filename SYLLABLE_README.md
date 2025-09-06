@@ -166,8 +166,20 @@ function syllableSegment(text):
 - Special cases (`case 9`) handle more complex patterns.  
 - Invalid sequences (`case -1`) can be marked or ignored.  
 
----
 
+### TwoConsecutive Table
+
+![twoConsecutive Table](reference/twoConsecutive_table.png)
+
+### ThreeConsecutive Table
+
+![ThreeConsecutive Table](reference/threeConsecutive_table.png)
+
+### FourConsecutive Table
+
+![FourConsecutive Table](reference/fourConsecutive_table.png)
+
+---
 ## 7. Examples
 - Input: `မားစ်ဂိုဟ်` → segmented as `မားစ်|ဂိုဟ်|`
 - Input: `မနုဿ` → contains Great Sa → no break before ဿ
