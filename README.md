@@ -27,6 +27,7 @@ pip install .
 ## Usage
 
 ### Syllable Segmenter
+For detailed explanation, see [Syllable Segmentation Details](SYLLABLE_README.md)
 
 ```python
 from mmTokenizer import syllableSegment
