@@ -33,6 +33,15 @@ The following table summarizes the Unicode categories used in Myanmar syllable s
 | **P**    | Punctuation Marks               | ၊ ။                                           | U+104A–U+104B | Sentence punctuation |
 | **W**    | White space                     | (space)                                         | U+0020 | Word or syllable separator |
 
+### Important character categories (short)
+- **C**: Consonants (U+1000–U+1021)
+- **M**: Medials (U+103B–U+103E)
+- **V**: Dependent vowels (U+102B–U+1032, etc.)
+- **S**: Virama (U+1039)
+- **A**: Asat (U+103A)
+- **F**: Dependent various signs (U+1036–U+1038)
+- **I / E / G / D / P / W**: Independent vowels, Great Sa, Digits, Punctuation, White space (see the paper for full mappings)
+  
 (See the table above for the complete mapping of Myanmar glyphs to categories and their Unicode code points.)
 
 ---
