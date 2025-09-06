@@ -68,6 +68,10 @@ Where:
 
 ---
 
+### Finite State Automaton (FSA) for Syllable Structure
+
+![FSA for Syllable Structure](reference/FSA-for-Syllable-Structure.png)
+
 ## 3. High-level Algorithm
 1. **Preprocessing**
    - Normalize input to Unicode canonical order.
