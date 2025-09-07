@@ -1,7 +1,5 @@
 # Lexicon-Based Myanmar Word Segmentation — Step-by-Step Guide with Examples
 
-_Last updated: 2025-09-07_
-
 This guide explains how the function `wordSegment(text: str) -> str` works, aligned with the **syllable-first longest-match approach**. It also includes **examples of Myanmar word segmentation** (both successes and errors) as reported in *Myanmar Word Segmentation using Syllable level Longest Matching* (Hla Hla Htay & Kavi Narayana Murthy, 2008).
 
 ---
