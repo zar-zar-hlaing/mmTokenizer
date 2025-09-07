@@ -39,6 +39,7 @@ print(syllable_seg_out)  # လူ|တိုင်း|သည်| |တူ|ညီ|�
 ```
 
 ### Word Segmenter
+For detailed explanation, see [Word Segmentation Details](WORD_README.md)
 
 ```python
 from mmTokenizer import wordSegment
