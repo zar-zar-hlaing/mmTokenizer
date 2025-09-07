@@ -19,7 +19,6 @@ Myanmar script does not reliably use spaces between words, but **syllable bounda
 
 **Raw text → syllable segmentation → longest-match word segmentation**.
 
-Coverage is very high: a syllable list of ~4,550 entries covered **99.96%** of syllables in a corpus of 2,728 sentences.
 
 ---
 
@@ -28,19 +27,20 @@ Coverage is very high: a syllable list of ~4,550 entries covered **99.96%** of s
 Suppose the input text is (in Myanmar script):
 
 ```
-သူကစားတယ်
+သူကစားနေသည်။
 ```
 
-- **Step 1 (syllabify):** `သူ|က|စား|တယ်`  
+- **Step 1 (syllabify):** `သူ|က|စား|နေ|သည်|။`  
 - **Step 2 (longest match):**  
   - `သူ` = “he/she” (found in lexicon)  
-  - `က` = subject marker (found in lexicon)  
-  - `စား` = “eat/play” (depending on context, but valid lexicon entry)  
-  - `တယ်` = tense/aspect particle (valid entry)  
+  - `ကစား` = “play” (valid lexicon entry)  
+  - `နေ` = continuous aspect marker (valid entry)  
+  - `သည်` = tense/aspect particle (valid entry)  
+  - `။` = sentence-ending punctuation  
 
-**Final segmentation:**  
+**Final segmentation:**
 ```
-သူ|က|စား|တယ်
+သူ|ကစား|နေ|သည်|။
 ```
 
 This is correct — the longest-match algorithm aligns with natural word boundaries.
@@ -119,7 +119,7 @@ Both are acceptable, but inconsistent lexicon entries can lead to over-joining o
 
 ---
 
-## 7) Observed Error Rates (from the paper)
+## 7) Observed Error Rates (from [Htay & Murthy, 2008](https://aclanthology.org/I08-7006/))
 
 - On ~1,000 test sentences (7,343 words), ~**4% OOV words** were observed with their lexicon.  
 - Longest-match achieved **Recall 98.81%**, **Precision 99.11%**, **F1 98.95%** on 5,000 sentences.  
@@ -149,5 +149,4 @@ Both are acceptable, but inconsistent lexicon entries can lead to over-joining o
 
 ## 10) References
 
-- Hla Hla Htay & Kavi Narayana Murthy (2008). *Myanmar Word Segmentation using Syllable level Longest Matching*. Proceedings of the 6th Workshop on Asian Language Resources.
-
+- H. Htay and K. N. Murthy, “[Myanmar Word Segmentation using Syllable level Longest Matching](https://aclanthology.org/I08-7006/),” *Proceedings of the 6th Workshop on Asian Language Resources*, Hyderabad, India, January 2008.
