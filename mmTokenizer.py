@@ -178,63 +178,116 @@ def thirdTable(c: int, s1: str, i: int, convert: list):
 
 #region Word segmentation
 
-def wordSegment(text: str) -> str:
+# ---------- Trie (syllable-keyed) ----------
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_word = False
+
+def build_trie_syllables(lexicon, syllableSegment):
     """
-    Performs lexicon-based word segmentation.
-    - Loads lexicon from file
-    - Splits tokenized string
-    - Matches longest possible words in lexicon
+    Build a trie where each edge key is a syllable (not a character).
+    syllableSegment(word) must return 'syll1|syll2|...' for the given word.
     """
-    returnText = ""
+    root = TrieNode()
+    for word in lexicon:
+        # get syllables for the lexicon entry
+        sylls = syllableSegment(word).split("|")
+        node = root
+        for syll in sylls:
+            if syll not in node.children:
+                node.children[syll] = TrieNode()
+            node = node.children[syll]
+        node.is_word = True
+    return root
+
+# ---------- Robust loader + segmentation ----------
+def wordSegment(text: str, lexicon_path=None) -> str:
+    """
+    Syllable-first, longest-match word segmentation using a syllable-trie.
+    - Detects Myanmar word column robustly using Unicode-range test.
+    - Builds trie keyed by syllables (so tokens are combined by syllable).
+    - Requires `syllableSegment(text)` to segment the syllable of the input text.
+    """
+    # change this if you want an explicit path
+    if lexicon_path is None:
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        base_dir = os.path.abspath(os.path.join(current_dir, "."))
+        lexicon_path = os.path.join(base_dir, "myanmar_text_data", "lexicon-1.txt")
+
+    # regex to detect Myanmar script characters
+    myanmar_re = re.compile(r"[\u1000-\u109F\uAA60-\uAA7F]")
+
     lexicon = set()
 
     try:
-        # Get current file's directory
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        # print("___current_dir___:\t", current_dir, "\n")
+        with io.open(lexicon_path, "r", encoding="utf-8") as f:
+            for lineno, line in enumerate(f, start=1):
+                raw = line.rstrip("\n\r")
+                # split on tabs — keep empty fields so we know positions,
+                # but strip whitespace from each
+                parts = [p.strip() for p in raw.split("\t")]
+                # remove fields that are completely empty strings
+                fields = [p for p in parts if p != ""]
 
-        # Go one level up to project root
-        base_dir = os.path.abspath(os.path.join(current_dir, "."))
-        # print("__base_dir___:\t", base_dir, "\n")
+                if not fields:
+                    continue
 
-        # Build relative path to lexicon file
-        LEXICON_FILE_PATH = os.path.join(base_dir, "myanmar_text_data", "lexicon-1.txt")
+                # Prefer the first field that contains Myanmar characters
+                word = None
+                for fld in fields:
+                    # remove zero-width spaces and BOMs
+                    fld_clean = fld.replace("\u200b", "").replace("\ufeff", "").strip()
+                    if myanmar_re.search(fld_clean):
+                        word = fld_clean
+                        break
 
-        # Load lexicon (words are in the 2nd column of tab-separated file)
-        with io.open(LEXICON_FILE_PATH, "r", encoding="utf-8") as f:
-            for line in f:
-                parts = line.strip().split("\t")
-                if len(parts) > 1:  # ensure at least two columns
-                    lexicon.add(parts[1])
+                # Fallback heuristics if no Myanmar script was found:
+                if word is None:
+                    # if fields look like [id, word, ...] and first is numeric, choose second
+                    if len(fields) >= 2 and fields[0].isdigit():
+                        word = fields[1].replace("\u200b", "").replace("\ufeff", "").strip()
+                    else:
+                        # fallback to second field if exists, else first
+                        word = (fields[1] if len(fields) >= 2 else fields[0]).replace("\u200b", "").replace("\ufeff", "").strip()
 
-        # Tokenize into syllables
+                if word:
+                    lexicon.add(word)
+
+        # build syllable trie (requires syllableSegment function)
+        trie_root = build_trie_syllables(lexicon, syllableSegment)
+
+        # now segment the input text (syllableSegment must return syllables joined by '|')
         tokens = syllableSegment(text).split("|")
-        lastOutput = []
+        out = []
+        i = 0
+        while i < len(tokens):
+            node = trie_root
+            longest_match = None
+            longest_k = 0
 
-        # Longest match algorithm
-        while tokens:
-            matched = False
-            # Try longest possible sequence first
-            for k in range(len(tokens), 0, -1):
-                candidate = "".join(tokens[:k])
-                if candidate in lexicon:
-                    lastOutput.append(candidate)
-                    tokens = tokens[k:]
-                    matched = True
+            # walk syllable by syllable
+            for k in range(len(tokens) - i):
+                syll = tokens[i + k]
+                if syll not in node.children:
                     break
-            # If no match, keep single syllable
-            if not matched:
-                lastOutput.append(tokens[0])
-                tokens = tokens[1:]
+                node = node.children[syll]
+                if node.is_word:
+                    longest_match = "".join(tokens[i:i + k + 1])
+                    longest_k = k + 1
 
-        returnText = "|".join(lastOutput)
+            if longest_match:
+                out.append(longest_match)
+                i += longest_k
+            else:
+                out.append(tokens[i])
+                i += 1
+
+        return "|".join(out)
 
     except Exception as e:
-        print("Error reading lexicon:", e)
+        print("Error loading lexicon or during segmentation:", e)
         return None
-
-    return returnText
-
 
 #endregion
 
