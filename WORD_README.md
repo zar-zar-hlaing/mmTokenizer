@@ -4,7 +4,7 @@ This guide explains how the function `wordSegment(text: str) -> str` works, alig
 
 ---
 
-## 1) Recap of the Function
+## 1. Recap of the Function
 
 - Loads a **lexicon** of words from `lexicon-1.txt` (tab-separated, word in 2nd column).  
 - Uses a helper `syllableSegment(text)` to produce a `|`-separated sequence of syllables.  
@@ -13,7 +13,7 @@ This guide explains how the function `wordSegment(text: str) -> str` works, alig
 
 ---
 
-## 2) Why syllables first?
+## 2. Why syllables first?
 
 Myanmar script does not reliably use spaces between words, but **syllable boundaries are clear**. Thus, the pipeline is:
 
@@ -22,7 +22,7 @@ Myanmar script does not reliably use spaces between words, but **syllable bounda
 
 ---
 
-## 3) Example: Correct Segmentation
+## 3. Example: Correct Segmentation
 
 Suppose the input text is (in Myanmar script):
 
@@ -47,7 +47,7 @@ This is correct — the longest-match algorithm aligns with natural word boundar
 
 ---
 
-## 4) Example: OOV Word
+## 4. Example: OOV Word
 
 Suppose the text is:
 
@@ -70,7 +70,7 @@ This is an **under-segmentation** — the algorithm outputs syllables instead of
 
 ---
 
-## 5) Example: Greedy Ambiguity
+## 5. Example: Greedy Ambiguity
 
 Consider the pronoun string:
 
@@ -99,7 +99,7 @@ If the intended meaning was actually “သူ + မ” (e.g., in a compound), t
 
 ---
 
-## 6) Example: Verb + Particle
+## 6. Example: Verb + Particle
 
 Text:
 
@@ -119,7 +119,7 @@ Both are acceptable, but inconsistent lexicon entries can lead to over-joining o
 
 ---
 
-## 7) Observed Error Rates (from [Htay & Murthy, 2008](https://aclanthology.org/I08-7006/))
+## 7. Observed Error Rates (from [Htay & Murthy, 2008](https://aclanthology.org/I08-7006/))
 
 - On ~1,000 test sentences (7,343 words), ~**4% OOV words** were observed with their lexicon.  
 - Longest-match achieved **Recall 98.81%**, **Precision 99.11%**, **F1 98.95%** on 5,000 sentences.  
@@ -130,7 +130,7 @@ Both are acceptable, but inconsistent lexicon entries can lead to over-joining o
 
 ---
 
-## 8) Summary of Error Handling in This Function
+## 8. Summary of Error Handling in This Function
 
 - **OOV**: Falls back to single syllables.  
 - **Ambiguity**: Always picks the **longest available match**; context is ignored.  
@@ -138,7 +138,7 @@ Both are acceptable, but inconsistent lexicon entries can lead to over-joining o
 
 ---
 
-## 9) Possible Improvements
+## 9. Possible Improvements
 
 - Add **frequency-based costs** to lexicon and run **Viterbi search**.  
 - Maintain **multiple segmentation paths** (beam search).  
@@ -147,6 +147,6 @@ Both are acceptable, but inconsistent lexicon entries can lead to over-joining o
 
 ---
 
-## 10) References
+## 10. References
 - Z. M. Maung and Y. Mikami, “[A Rule-based Syllable Segmentation of Myanmar Text](https://aclanthology.org/I08-3010/),” *Proceedings of the IJCNLP-08 Workshop on NLP for Less Privileged Languages*, Hyderabad, India, Jan. 2008.
 - H. Htay and K. N. Murthy, “[Myanmar Word Segmentation using Syllable level Longest Matching](https://aclanthology.org/I08-7006/),” *Proceedings of the 6th Workshop on Asian Language Resources*, Hyderabad, India, January 2008.
