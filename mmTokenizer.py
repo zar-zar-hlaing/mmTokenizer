@@ -10,7 +10,6 @@
 import os
 import io
 import re
-from concurrent.futures import ThreadPoolExecutor
 
 #region Global state variables (used across lookup tables)
 
