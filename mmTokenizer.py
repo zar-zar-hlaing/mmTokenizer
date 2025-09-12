@@ -213,7 +213,7 @@ def wordSegment(text: str, lexicon_path=None) -> str:
     if lexicon_path is None:
         current_dir = os.path.dirname(os.path.abspath(__file__))
         base_dir = os.path.abspath(os.path.join(current_dir, "."))
-        lexicon_path = os.path.join(base_dir, "myanmar_text_data", "lexicon-1.txt")
+        lexicon_path = os.path.join(base_dir, "myanmar_text_data", "mmLexicon.txt")
 
     # regex to detect Myanmar script characters
     myanmar_re = re.compile(r"[\u1000-\u109F\uAA60-\uAA7F]")
