@@ -71,7 +71,7 @@ The lexicon was built step by step from the original CoNLL-U data.
 ## Usage
 
 1. Clone or download this repository.
-2. Load the `burmese_lexicon.tsv` in your NLP toolkit or word segmenter.
+2. Load the `mmLexicon.tsv` in your NLP toolkit or word segmenter.
 3. Use the **Word** and **UPOS** columns for tokenization and POS tagging tasks.
 
 Example (Python):
