@@ -6,7 +6,8 @@ This guide explains how the function `wordSegment(text: str) -> str` works, alig
 
 ## 1. Recap of the Function
 
-- Loads a **lexicon** of words from `lexicon-1.txt` (tab-separated, word in 2nd column).  
+- Loads a **lexicon** of words from `mmLexicon.tsv` (tab-separated, word in 2nd column).
+- For full details about the lexicon, including format, categories, and license, see [**mmLexicon_README.md**](./mmLexicon_README.md).  
 - Uses a helper `syllableSegment(text)` to produce a `|`-separated sequence of syllables.  
 - Segments left-to-right using **longest-match**: tries the longest span of syllables that forms a word; if no match, keeps one syllable.  
 - Returns the segmented words joined with `|`.  
