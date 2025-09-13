@@ -97,7 +97,8 @@ print(lexicon.head())
 This lexicon was created from the [myUDTree](https://github.com/ye-kyaw-thu/myUDTree) dataset  
 (`myUDTree_ver1.0.conllu.pred`) and is distributed under the same license as the source data:
 
-> **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**  
+> **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**
+> [Details Info of License](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 >
 > You are free to:
 > - **Share** — copy and redistribute the material in any medium or format  
