@@ -81,6 +81,11 @@ mmTokenizer/
 - Zar Zar Hlaing
 
 ## References
-- Z. M. Maung and Y. Mikami, “[A Rule-based Syllable Segmentation of Myanmar Text](https://aclanthology.org/I08-3010/),” *Proceedings of the IJCNLP-08 Workshop on NLP for Less Privileged Languages*, Hyderabad, India, Jan. 2008.
-- H. Htay and K. N. Murthy, “[Myanmar Word Segmentation using Syllable level Longest Matching](https://aclanthology.org/I08-7006/),” *Proceedings of the 6th Workshop on Asian Language Resources*, Hyderabad, India, January 2008.
+
+- Z. M. Maung and Y. Mikami, "[A Rule-based Syllable Segmentation of Myanmar Text](https://aclanthology.org/I08-3010/)," *Proceedings of the IJCNLP-08 Workshop on NLP for Less Privileged Languages*, Hyderabad, India, Jan. 2008.  
+- H. Htay and K. N. Murthy, "[Myanmar Word Segmentation using Syllable-level Longest Matching](https://aclanthology.org/I08-7006/)," *Proceedings of the 6th Workshop on Asian Language Resources*, Hyderabad, India, Jan. 2008.  
+- Z. Z. Hlaing, Y. K. Thu, T. Supnithi, and P. Netisopakul, "Graph-based Dependency Parser Building for Myanmar Language," *2022 17th International Joint Symposium on Artificial Intelligence and Natural Language Processing (iSAI-NLP)*, Chiang Mai, Thailand, 2022, pp. 1–6, doi: [10.1109/iSAI-NLP56921.2022.9960267](https://doi.org/10.1109/iSAI-NLP56921.2022.9960267).  
+- [myUDTree project](https://github.com/ye-kyaw-thu/myUDTree)  
+- [Universal Dependencies (UD) guidelines](https://universaldependencies.org/) for POS tagging
+
 
