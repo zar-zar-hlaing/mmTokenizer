@@ -52,22 +52,29 @@ print(syllable_seg_out)  # လူ|တိုင်း|သည်| |တူညီ|�
 
 ## Folder Structure
 ```
-./mmTokenizer/
+mmTokenizer/
 ├── __init__.py
-├── LICENSE
-├── mmTokenizer.py
-├── myanmar_text_data
-│   └── lexicon-1.txt
-├── README.md
-├── SYLLABLE_README.md          # <-- detailed syllable segmentation explanation
-├── WORD_README.md              # <-- detailed word segmentation explanation
-├── reference
-│   ├── A_Rule-based_Syllable_Segmentation_of_Myanmar_Text.pdf
-│   └── Myanmar_Word_Segmentation_using_Syllable_level_Longest_Matching.pdf
-├── requirements.txt
-├── setup.py
-└── tests
-    └── test_mmtokenizer.py
+├── LICENSE                     # MIT License for the tool
+├── LICENSE_README.md           # Combined explanation for tool and lexicon licenses
+├── mmLexicon_README.md         # Lexicon documentation (CC BY-NC-SA 4.0)
+├── mmTokenizer.py              # Main tool code
+├── myanmar_text_data/
+│   └── mmLexicon.tsv           # Burmese lexicon used by the tool
+├── README.md                   # Main repository README
+├── reference/
+│   ├── A_Rule-based_Syllable_Segmentation_of_Myanmar_Text.pdf
+│   ├── fourConsecutive_table.png
+│   ├── FSA-for-Syllable-Structure.png
+│   ├── Myanmar_Word_Segmentation_using_Syllable_level_Longest_Matching.pdf
+│   ├── threeConsecutive_table.png
+│   └── twoConsecutive_table.png
+├── SYLLABLE_README.md          # Detailed explanation of syllable segmentation
+├── WORD_README.md              # Detailed explanation of word segmentation
+├── requirements.txt            # Python dependencies
+├── setup.py                    # Optional for pip installation
+└── tests/
+    └── test_mmtokenizer.py     # Unit tests
+
 ```
 
 ## Author
