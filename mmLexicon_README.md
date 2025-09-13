@@ -78,7 +78,7 @@ Example (Python):
 ```python
 import pandas as pd
 
-lexicon = pd.read_csv("burmese_lexicon.tsv", sep="\t")
+lexicon = pd.read_csv("mmLexicon.tsv", sep="\t")
 print(lexicon.head())
 ```
 
