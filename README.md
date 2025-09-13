@@ -19,7 +19,7 @@ Clone and install locally:
 ```bash
 git clone https://github.com/zar-zar-hlaing/mmTokenizer.git
 cd mmTokenizer
-pip install .
+python3 -m pip install -e .
 ```
 
 ---
