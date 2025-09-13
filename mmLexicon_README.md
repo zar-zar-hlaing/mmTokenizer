@@ -92,16 +92,29 @@ print(lexicon.head())
 
 ---
 
-## 📜 License
+### License
 
-This lexicon follows the same license as the [myUDTree dataset](https://github.com/zar-zar-hlaing/myUDTree/blob/main/LICENSE) (if applicable).  
-Please review the license terms before redistribution.
+This lexicon was created from the [myUDTree](https://github.com/ye-kyaw-thu/myUDTree) dataset  
+(`myUDTree_ver1.0.conllu.pred`) and is distributed under the same license as the source data:
+
+> **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**  
+>
+> You are free to:
+> - **Share** — copy and redistribute the material in any medium or format  
+> - **Adapt** — remix, transform, and build upon the material  
+>
+> Under the following terms:
+> - **Attribution** — You must give appropriate credit to the original myUDTree contributors.  
+> - **NonCommercial** — You may not use the material for commercial purposes.  
+> - **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+>
+> For more information, please see the [myUDTree repository](https://github.com/ye-kyaw-thu/myUDTree).
 
 ---
 
 ## ✨ Acknowledgements
 
-- [myUDTree project](https://github.com/zar-zar-hlaing/myUDTree)
+- [myUDTree project](https://github.com/ye-kyaw-thu/myUDTree)
 - Universal Dependencies (UD) guidelines for POS tagging.
 
 ---
