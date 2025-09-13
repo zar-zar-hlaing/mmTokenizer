@@ -46,8 +46,9 @@ The lexicon was built step by step from the original CoNLL-U data.
 | ID | Word | Semantic/Category | Detailed POS | UPOS | Part-of-Speech (POS) tagset |
 |----|------|-------------------|--------------|------|----------------------------|
 | 1  | က    | none              | none         | ADP  | Adposition                |
-| 2  | ကြ  | none              | none         | PART | Particle                  |
-| 3  | ကာ   | none              | none         | SCONJ| Subordinating Conjunction |
+| 2  | ကာ   | none              | none         | SCONJ| Subordinating Conjunction |
+| 3  | ကြ  | none              | none         | PART | Particle                  |
+
 
 - Ensure the header row is clear and descriptive.
 
