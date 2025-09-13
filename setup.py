@@ -7,7 +7,9 @@ setup(
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     author="Zar Zar Hlaing",
+    author_email="zarzarhlaing.it@gmail.com",
     url="https://github.com/zar-zar-hlaing/mmTokenizer",
+    license="MIT",
     packages=find_packages(),
     python_requires=">=3.7",
     install_requires=[],
@@ -18,4 +20,3 @@ setup(
         "Operating System :: OS Independent",
     ],
 )
-
