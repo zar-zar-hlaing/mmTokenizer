@@ -5,7 +5,7 @@ The lexicon is designed to support **word segmentation**, **linguistic research*
 
 ---
 
-## 📄 Overview
+## Overview
 
 - **Source Dataset**: myUDTree v1.0 (`myUDTree_ver1.0.conllu.pred`)
 - **Lexicon Size**: 21,876 entries
@@ -14,7 +14,7 @@ The lexicon is designed to support **word segmentation**, **linguistic research*
 
 ---
 
-## 🏗️ Lexicon Creation Workflow
+## Lexicon Creation Workflow
 
 The lexicon was built step by step from the original CoNLL-U data.
 
@@ -67,7 +67,7 @@ The lexicon was built step by step from the original CoNLL-U data.
 
 ---
 
-## 📌 Usage
+## Usage
 
 1. Clone or download this repository.
 2. Load the `burmese_lexicon.tsv` in your NLP toolkit or word segmenter.
@@ -84,7 +84,7 @@ print(lexicon.head())
 
 ---
 
-## 🔍 Notes & Recommendations
+## Notes & Recommendations
 
 - The lexicon is primarily based on **myUDTree v1.0**. Updates or new versions may require re-generation.
 - Intended for research and development purposes; not a complete dictionary of Burmese.
@@ -113,10 +113,11 @@ This lexicon was created from the [myUDTree](https://github.com/ye-kyaw-thu/myUD
 
 ---
 
-## ✨ Acknowledgements
+### References
 
 - [myUDTree project](https://github.com/ye-kyaw-thu/myUDTree)
-- Universal Dependencies (UD) guidelines for POS tagging.
+- [Universal Dependencies (UD) guidelines](https://universaldependencies.org/) for POS tagging
+
 
 ---
 
