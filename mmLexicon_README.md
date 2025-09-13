@@ -62,8 +62,8 @@ The lexicon was built step by step from the original CoNLL-U data.
 
 | File | Description |
 |------|-------------|
-| `burmese_lexicon.tsv` | The main lexicon file for Burmese word segmentation. |
-| `README.md` | Documentation explaining the creation and structure of the lexicon. |
+| `myanmar_text_data/mmLexicon.tsv` | The main lexicon file for Burmese word segmentation. |
+| `mmLexicon_README.md` | Documentation explaining the creation and structure of the lexicon. |
 
 ---
 
