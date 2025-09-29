@@ -1,6 +1,6 @@
 # Burmese Lexicon for Word Segmentation
 
-This repository provides a **Burmese Lexicon** generated from the [myUDTree v1.0](https://github.com/zar-zar-hlaing/myUDTree/tree/main/ver-1.0/myUDTree-ver1.0) dataset.  
+This repository provides a **Burmese Lexicon** generated from the [myUDTree v1.0](https://github.com/ye-kyaw-thu/myUDTree/tree/main/ver-1.0/myUDTree-ver1.0) dataset.  
 The lexicon is designed to support **word segmentation**, **linguistic research**, and other Natural Language Processing (NLP) tasks.
 
 ---
@@ -19,7 +19,7 @@ The lexicon is designed to support **word segmentation**, **linguistic research*
 The lexicon was built step by step from the original CoNLL-U data.
 
 ### 1️⃣ Data Collection
-- Download the [myUDTree v1.0](https://github.com/zar-zar-hlaing/myUDTree/tree/main/ver-1.0/myUDTree-ver1.0) dataset.
+- Download the [myUDTree v1.0](https://github.com/ye-kyaw-thu/myUDTree/tree/main/ver-1.0/myUDTree-ver1.0) dataset.
 - Locate the file: `myUDTree_ver1.0.conllu.pred`.
 
 ### 2️⃣ Preprocessing
